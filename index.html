@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AI Poem Generator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <h1>AI Poem Generator</h1>
-      <div class="input-btn">
-        <input type="text" placeholder="context of the poem" />
-        <button>Search</button>
+      <div class="search-hint">
+        <div class="input-btn">
+          <input type="text" placeholder="context of the poem" />
+          <button>Generate Poem</button>
+        </div>
+        <p>i.e Flowers, Edinburgh or cheese</p>
       </div>
-      <div class="poem-sign">
+
+      <div class="poem-sign hidden">
         <div class="poem"></div>
-        <p class="hidden">SheCodes AI</p>
+        <p>SheCodes AI</p>
       </div>
       <footer>
         This AI project is coded by <span>Saron Demisu</span> and is
@@ -25,6 +29,7 @@
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

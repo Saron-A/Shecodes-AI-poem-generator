@@ -1,7 +1,8 @@
 let input = document.querySelector("input");
 let btn = document.querySelector(".input-btn button");
-let div = document.querySelector(".poem");
-let hiddenP = document.querySelector("p.hidden");
+let poemDiv = document.querySelector(".poem");
+let signature = document.querySelector(".poem-sign p");
+let hiddenDiv = document.querySelector(".poem-sign");
 
 const fetchAIPoems = async () => {
   let topic = input.value.trim();
@@ -18,10 +19,26 @@ const fetchAIPoems = async () => {
 
   let poem = data.answer.replace(/\n/g, "<br>");
 
-  div.innerHTML = poem;
+  // Show poem area
+  hiddenDiv.classList.remove("hidden");
 
-  div.classList.add("show-poem");
-  hiddenP.classList.remove("hidden");
+  // Clear any previous output
+  poemDiv.innerHTML = "";
+  signature.innerText = "";
+
+  // Typewriter effect
+  const typewriter = new Typewriter(poemDiv, {
+    autoStart: true,
+    delay: 40,
+  });
+
+  typewriter
+    .typeString(poem)
+    .pauseFor(800)
+    .callFunction(() => {
+      signature.innerHTML = "<em>SheCodes AI</em>";
+    })
+    .start();
 };
 
 btn.addEventListener("click", fetchAIPoems);
