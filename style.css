@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  border: 2px solid black;
+  width: 60%;
+}
+
+.input-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 0.75rem;
+  width: 80%;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 80%;
+  border: 2px solid gray;
+  outline: none;
+}
+
+button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.poem-sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.hidden {
+  display: none;
+}
+
+.show-poem {
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  white-space: normal;
+}

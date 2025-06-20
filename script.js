@@ -1,6 +1,7 @@
 let input = document.querySelector("input");
 let btn = document.querySelector(".input-btn button");
 let div = document.querySelector(".poem");
+let hiddenP = document.querySelector("p.hidden");
 
 const fetchAIPoems = async () => {
   let topic = input.value.trim();
@@ -15,8 +16,12 @@ const fetchAIPoems = async () => {
   let data = response.data;
   console.log(data);
 
-  div.innerHTML = data.answer;
+  let poem = data.answer.replace(/\n/g, "<br>");
+
+  div.innerHTML = poem;
+
   div.classList.add("show-poem");
+  hiddenP.classList.remove("hidden");
 };
 
 btn.addEventListener("click", fetchAIPoems);
