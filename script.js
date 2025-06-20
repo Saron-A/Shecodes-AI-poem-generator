@@ -4,6 +4,16 @@ let poemDiv = document.querySelector(".poem");
 let signature = document.querySelector(".poem-sign p");
 let hiddenDiv = document.querySelector(".poem-sign");
 
+const placeHolderText = () => {
+  poemDiv.innerHTML = `Generating poem...`;
+  signature.innerText = "";
+  hiddenDiv.classList.remove("hidden");
+
+  setTimeout(() => {
+    fetchAIPoems();
+  }, 100);
+};
+
 const fetchAIPoems = async () => {
   let topic = input.value.trim();
   let apiKey = `5704c3b4443b30c3afaa70c5fodbt64b`;
@@ -41,4 +51,7 @@ const fetchAIPoems = async () => {
     .start();
 };
 
-btn.addEventListener("click", fetchAIPoems);
+btn.addEventListener("click", placeHolderText);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") placeHolderText();
+});
